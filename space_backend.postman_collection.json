@@ -1,0 +1,195 @@
+{
+	"info": {
+		"_postman_id": "587e1f1e-de49-495a-b6c1-396af7901157",
+		"name": "Space backend",
+		"description": "collection for space backend APIs.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"testing8\",\n\t\"password\": \"Password1\",\n\t\"firstName\": \"Test8\",\n\t\"lastName\": \"Ing8\",\n\t\"birthday\": \"12-22-1908\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}/users",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users"
+							]
+						},
+						"description": "Create user.\n\n\nexample json:\n{\n\t\"username\": \"testing1\",\n\t\"password\": \"Password1\",\n\t\"firstName\": \"Test\",\n\t\"lastName\": \"Ing\",\n\t\"birthday\": \"10-10-1999\"\n}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get User by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8081/users?id={{userId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{userId}}"
+								}
+							]
+						},
+						"description": "Get user by ID."
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "Get profile by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}/profile?id={{profileId}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"profile"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{profileId}}"
+								}
+							]
+						},
+						"description": "Get Profile by ID. Includes associated userId and user structure if it exists."
+					},
+					"response": []
+				},
+				{
+					"name": "Get all profiles",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}/profile/all",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"profile",
+								"all"
+							]
+						},
+						"description": "Get all Profiles. Includes associated userId and user structure if it exists."
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "fc68679e-d725-45fa-bcbe-dc84f7cc8f71",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "7c5efbc9-f8e0-4a09-98f6-1b621770b93c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "078f9756-553a-40e7-a020-cb070dfc30b9",
+			"key": "url",
+			"value": "localhost:8081",
+			"type": "string"
+		},
+		{
+			"id": "e0b0bf09-51a0-4d02-8992-457f31f6d650",
+			"key": "profileId",
+			"value": "2f8dc449-d127-43cc-b70a-dedf996ffb06",
+			"type": "string"
+		},
+		{
+			"id": "47a50105-724b-42b6-b4f0-5c70c7c4a3d3",
+			"key": "userId",
+			"value": "74d3e75f-2d24-4b42-8fc1-745f3c4d3e89",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
